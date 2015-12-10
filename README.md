@@ -6,5 +6,5 @@ docker-compose.yml (registry + jenkins + jupyter)
 # apt-get update && apt-get upgrade -y && apt-get install -y git
 # git clone https://github.com/mnagaku/docker-ops.git
 # cd docker-ops
-# ./start.sh
+# sh ./start.sh
 ```
