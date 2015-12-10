@@ -1,0 +1,34 @@
+ docker-registry-web:
+   image: hyper/docker-registry-web
+   ports:
+     - "80:8080"
+   links:
+     - registry
+   environment:
+    REGISTRY_HOST: registry
+    REGISTRY_PORT: 5000
+
+ registry:
+   image: registry:2
+   ports:
+     - 5000:5000
+   environment:
+     REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /registry
+     REGISTRY_STORAGE_DELETE_ENABLED: true
+   volumes:
+     - ./registry:/registry
+
+ jenkins:
+   image: jenkins
+   ports:
+     - 8080:8080
+     - 50000:50000
+   volumes:
+     - ./jenkins:/var/jenkins_home
+
+ jupyter:
+   image: jupyter/notebook
+   ports:
+     - 8888:8888
+   volumes:
+     - ./jupyter:/notebooks
