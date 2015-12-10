@@ -1,7 +1,7 @@
  docker-registry-web:
    image: hyper/docker-registry-web
    ports:
-     - "80:8080"
+     - 80:8080
    links:
      - registry
    environment:
@@ -14,7 +14,7 @@
      - 5000:5000
    environment:
      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /registry
-     REGISTRY_STORAGE_DELETE_ENABLED: true
+     REGISTRY_STORAGE_DELETE_ENABLED: 'true'
    volumes:
      - ./registry:/registry
 
